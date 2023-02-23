@@ -12,6 +12,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function getRoleName($role_id)
+    {
+        $roleName = "ロール";
+        if ($role_id) {
+            $role = Role::find($role_id);
+            $roleName = $role->name;
+        }
+        return $roleName;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +31,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avator',
+        'role_id',
     ];
 
     /**
