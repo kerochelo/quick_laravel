@@ -36,4 +36,19 @@ class Article extends Model
         }
         return 'slug';
     }
+
+    public function sentences()
+    {
+        return $this->morphedByMany(Sentence::class, 'article_block');
+    }
+
+    public function embeds()
+    {
+        return $this->morphedByMany(Embed::class, 'article_block');
+    }
+
+    public function media()
+    {
+        return $this->morphedByMany(Medium::class, 'article_block');
+    }
 }
