@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SiteController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SiteController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +29,13 @@ Route::get('/', function() {
     return redirect('/blogs');
 });
 
-Route::get('/admin', function() {
-    return redirect('/admin/articles');
-});
+Route::get('/admin', [ArticleController::class, 'index']);
 
 Route::resource('blogs', BlogController::class)->only([
     'index', 'show', 'category'
 ]);
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin' , 'prefix' => 'admin'], function () {
     Route::resource('articles', ArticleController::class)->only([
         'index', 'create', 'store', 'edit', 'update', 'destory', 'search', 'publish'
     ]);
