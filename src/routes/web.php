@@ -37,7 +37,7 @@ Route::resource('blogs', BlogController::class)->only([
     'index', 'show', 'category'
 ]);
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::resource('articles', ArticleController::class)->only([
         'index', 'create', 'store', 'edit', 'update', 'destory', 'search', 'publish'
     ]);
