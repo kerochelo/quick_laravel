@@ -23,7 +23,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Articles::all();
+        $articles = Article::all();
         $categories = Category::all();
         $authors = Author::all();
         $tags = Tag::all();
