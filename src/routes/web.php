@@ -35,10 +35,12 @@ Route::resource('blogs', BlogController::class)->only([
     'index', 'show', 'category'
 ]);
 
-Route::group(['namespace' => 'Admin' , 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin' , 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('articles', ArticleController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory', 'search', 'publish'
+        'index', 'create', 'store', 'edit', 'update', 'destory'
     ]);
+    Route::post('/articles/search', [ArticleController::class, 'search'])->name('articles.search');
+    Route::get('/articles/publish/{article}', [ArticleController::class, 'publish'])->name('articles.publish');
     Route::resource('categories', CategoryController::class)->only([
         'index', 'store', 'edit', 'update', 'destory'
     ]);
