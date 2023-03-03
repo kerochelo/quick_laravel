@@ -42,13 +42,13 @@ Route::group(['namespace' => 'Admin' , 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::post('/articles/search', [ArticleController::class, 'search'])->name('articles.search');
     Route::get('/articles/publish/{article}', [ArticleController::class, 'publish'])->name('articles.publish');
     Route::resource('categories', CategoryController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destroy'
+        'index', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('tags', TagController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destroy'
+        'index', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('authors', AuthorController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destroy'
+        'index', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('users', UserController::class)->only([
         'index', 'create', 'store', 'edit', 'update', 'destroy'
