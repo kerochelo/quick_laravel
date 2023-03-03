@@ -17,4 +17,9 @@ class ArticleTag extends Model
     {
         return $this->belongsTo(Article::class);
     }
+
+    public function tag()
+    {
+        return $this->belongsTo(Tag::class);
+    }
 }

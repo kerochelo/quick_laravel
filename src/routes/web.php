@@ -37,23 +37,23 @@ Route::resource('blogs', BlogController::class)->only([
 
 Route::group(['namespace' => 'Admin' , 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('articles', ArticleController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::post('/articles/search', [ArticleController::class, 'search'])->name('articles.search');
     Route::get('/articles/publish/{article}', [ArticleController::class, 'publish'])->name('articles.publish');
     Route::resource('categories', CategoryController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('tags', TagController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('authors', AuthorController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('users', UserController::class)->only([
-        'index', 'create', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('sites', SiteController::class)->only([
-        'index', 'update', 'destory_favicon', 'destory_og_image', 'destory_main_image'
+        'index', 'update', 'destory_favicon', 'destroy_og_image', 'destory_main_image'
     ]);
 });

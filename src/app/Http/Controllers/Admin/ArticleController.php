@@ -50,7 +50,7 @@ class ArticleController extends Controller
         $article = Article::create($requestArray);
 
         session()->flash('flash_message', '登録しました。');
-        return redirect()->route('admin.articles.edit', ['article' => $article]);
+        return redirect()->route('admin.articles.index', ['article' => $article]);
     }
 
     public function show(Article $article)

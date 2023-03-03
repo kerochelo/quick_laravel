@@ -94,7 +94,7 @@
                     <i class="fa fa-eye"></i> プレビュー
                   @endif
                   </a>
-                  <a class="btn btn-link btn-xs btn-flat" rel="nofollow" data-method="delete" href="{{ route('admin.articles.delete', $article) }}">
+                  <a class="btn btn-link btn-xs btn-flat" rel="nofollow" data-method="delete" href="{{ route('admin.articles.destroy', $article) }}">
                     <i class="fa fa-trash"></i> 削除
                   </a>
                 </div>
