@@ -42,16 +42,16 @@ Route::group(['namespace' => 'Admin' , 'prefix' => 'admin', 'as' => 'admin.'], f
     Route::post('/articles/search', [ArticleController::class, 'search'])->name('articles.search');
     Route::get('/articles/publish/{article}', [ArticleController::class, 'publish'])->name('articles.publish');
     Route::resource('categories', CategoryController::class)->only([
-        'index', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destory'
     ]);
     Route::resource('tags', TagController::class)->only([
-        'index', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destory'
     ]);
     Route::resource('authors', AuthorController::class)->only([
-        'index', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destory'
     ]);
     Route::resource('users', UserController::class)->only([
-        'index', 'store', 'edit', 'update', 'destory'
+        'index', 'create', 'store', 'edit', 'update', 'destory'
     ]);
     Route::resource('sites', SiteController::class)->only([
         'index', 'update', 'destory_favicon', 'destory_og_image', 'destory_main_image'
