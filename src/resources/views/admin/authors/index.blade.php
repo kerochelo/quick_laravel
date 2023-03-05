@@ -52,8 +52,14 @@
                     <td>{{ $author->name }}</td>
                     <td>{{ $author->slug }}</td>
                     <td>{{ $author->created_at }}</td>
-                    <td><a href="{{ route('admin.authors.edit', $author) }}">編集</a></td>
-                    <td><a href="{{ route('admin.authors.destroy', $author) }}">削除</a></td>
+                    <td><a href="{{ route('admin.authors.edit', $author) }}" class="btn btn-info">編集</a></td>
+                    <td>
+                      <form action="{{ route('admin.authors.destroy', $author) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

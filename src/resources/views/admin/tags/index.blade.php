@@ -46,8 +46,14 @@
                     <td>{{ $tag->name }}</td>
                     <td>{{ $tag->slug }}</td>
                     <td>{{ $tag->created_at }}</td>
-                    <td><a href="{{ route('admin.tags.edit', $tag) }}">編集</a></td>
-                    <td><a href="{{ route('admin.tags.destroy', $tag) }}">削除</a></td>
+                    <td><a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-info">編集</a></td>
+                    <td>
+                      <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

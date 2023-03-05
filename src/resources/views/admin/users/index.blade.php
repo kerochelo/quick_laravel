@@ -56,8 +56,14 @@
                     <td></td>
                     @endif
                     <td>{{ $user->created_at }}</td>
-                    <td><a href="{{ route('admin.users.edit', $user) }}">編集</a></td>
-                    <td><a href="{{ route('admin.users.destroy', $user) }}">削除</a></td>
+                    <td><a href="{{ route('admin.users.edit', $user) }}" class="btn btn-info">編集</a></td>
+                    <td>
+                      <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

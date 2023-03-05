@@ -46,8 +46,14 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->slug }}</td>
                     <td>{{ $category->created_at }}</td>
-                    <td><a href="{{ route('admin.categories.edit', $category) }}">編集</a></td>
-                    <td><a href="{{ route('admin.categories.destroy', $category) }}">削除</a></td>
+                    <td><a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-info">編集</a></td>
+                    <td>
+                      <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>
