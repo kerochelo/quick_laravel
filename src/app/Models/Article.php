@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Log;
 
 class Article extends Model
 {
@@ -35,6 +38,11 @@ class Article extends Model
             return 'id';
         }
         return 'slug';
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'article_tags');
     }
 
     public function sentences()
