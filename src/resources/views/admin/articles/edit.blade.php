@@ -32,7 +32,8 @@
           <div class="js-article-block-forms">
 
           <table id="dynamicAddRemove">
-              @if(count($article->bodies) > 0)
+              {{-- once null safe --}}
+              @if(count($article->bodies ?? []) > 0)
               @php
                 $i = 0;
               @endphp
