@@ -45,8 +45,8 @@
                 @endif
                 @endforeach
               </p>
-              <h5 class="card-title"><a href="{{ route('blogs.show', $article) }}">{{ $article->title }}</a></h5>
-              <p class="card-text"><small class="text-muted">{{ $article->published_at->format('Y 年 m 月 d 日') }}</small></p>
+              <h5 class="card-title"><a href="{{ route('blogs.show', $article->slug) }}">{{ $article->title }}</a></h5>
+              <p class="card-text"><small class="text-muted">{{ $article->published_at?->format('Y 年 m 月 d 日') }}</small></p>
             </div>
           </div>
           @endforeach
