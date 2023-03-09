@@ -83,7 +83,7 @@
               <td>
                 <div>{{ $article->title }}</div>
                 <div>
-                  <a class="btn btn-default btn-xs btn-flat" href="{{ route('admin.articles.edit', $article) }}">
+                  <a class="btn btn-default btn-xs btn-flat" href="{{ route('admin.articles.edit', $article->uuid) }}">
                     <i class="fa fa-edit"></i> 編集
                   </a>
                   @if($article->slug)

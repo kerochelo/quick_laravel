@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Log;
 
+use Ramsey\Uuid\Uuid;
+
 class Article extends Model
 {
     use HasFactory;
@@ -31,11 +33,20 @@ class Article extends Model
         'published_at'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->uuid = Uuid::uuid4();
+        });
+    }
+
     public function getRouteKeyName()
     {
         $route_name = Request::route()->getName();
         if (str_starts_with($route_name, 'admin')) {
-            return 'id';
+            return 'uuid';
         }
         return 'slug';
     }
