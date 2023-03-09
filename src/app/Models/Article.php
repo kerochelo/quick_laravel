@@ -46,7 +46,7 @@ class Article extends Model
     {
         $route_name = Request::route()->getName();
         if (str_starts_with($route_name, 'admin')) {
-            return 'id';
+            return 'uuid';
         }
         return 'slug';
     }
